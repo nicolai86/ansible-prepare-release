@@ -1,0 +1,16 @@
+# default directories necessary for the role to work. DO NOT CHANGE!!
+default_directories:
+  - "{{ deploy_to }}"
+  - "{{ deploy_to }}/releases"
+  - "{{ shared_path }}"
+  - "{{ shared_path }}/vendor"
+  - "{{ shared_path }}/vendor/bundle"
+
+# default folders to symlink
+default_symlinks: []
+
+# path where new releases are build
+build_path: "{{ deployment.build_path }}"
+
+# shared path for configuration files, uploads, etc.
+shared_path: "{{ deploy_to }}/shared"

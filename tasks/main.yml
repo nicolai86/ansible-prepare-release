@@ -1,0 +1,52 @@
+---
+- name: create shared directories
+  file:
+    path: "{{ item }}"
+    state: "directory"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0755"
+  with_items:
+    - $default_directories
+    - $directories
+
+- name: create configuration files from templates
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0600"
+  with_items: $templates
+
+- name: create or update the bare Git repository
+  git:
+    repo: "{{ repo }}"
+    dest: "{{ deploy_to }}/scm"
+    version: "{{ branch }}"
+    bare: "yes"
+    update: "yes"
+
+- name: clone the bare Git repository to build directory
+  git:
+    repo: "{{ deploy_to }}/scm"
+    dest: "{{ build_path }}"
+    version: "{{ branch }}"
+    bare: "no"
+    update: "yes"
+
+- name: correct build directory permissions
+  file:
+    path: "{{ build_path }}"
+    mode: 0755
+
+- name: symlink shared files to build directory
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: "link"
+    force: "yes"
+    recurse: "yes"
+  with_items:
+    - $default_symlinks
+    - $symlinks
