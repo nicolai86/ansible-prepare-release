@@ -1,0 +1,4 @@
+# path where new releases are build
+build_path: "{{ deployment.build_path }}"
+
+templates: []

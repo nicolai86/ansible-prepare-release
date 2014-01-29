@@ -1,4 +1,6 @@
 ---
+- action: deployment_facts
+
 - name: create shared directories
   file:
     path: "{{ item }}"

@@ -9,8 +9,5 @@ default_directories:
 # default folders to symlink
 default_symlinks: []
 
-# path where new releases are build
-build_path: "{{ deployment.build_path }}"
-
 # shared path for configuration files, uploads, etc.
 shared_path: "{{ deploy_to }}/shared"
