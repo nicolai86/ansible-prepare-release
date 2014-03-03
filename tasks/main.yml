@@ -26,16 +26,17 @@
     repo: "{{ repo }}"
     dest: "{{ deploy_to }}/scm"
     version: "{{ branch }}"
-    bare: "yes"
-    update: "yes"
+    bare: yes
+    update: yes
+    accept_hostkey: yes
 
 - name: clone the bare Git repository to build directory
   git:
     repo: "{{ deploy_to }}/scm"
     dest: "{{ build_path }}"
     version: "{{ branch }}"
-    bare: "no"
-    update: "yes"
+    bare: no
+    update: yes
 
 - name: correct build directory permissions
   file:
