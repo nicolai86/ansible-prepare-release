@@ -53,3 +53,4 @@
   with_items:
     - $default_symlinks
     - $symlinks
+  when: item is defined

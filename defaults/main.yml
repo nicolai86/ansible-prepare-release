@@ -8,6 +8,7 @@ default_directories:
 
 # default folders to symlink
 default_symlinks: []
+symlinks: []
 
 # shared path for configuration files, uploads, etc.
 shared_path: "{{ deploy_to }}/shared"
