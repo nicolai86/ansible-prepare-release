@@ -5,6 +5,7 @@ default_directories:
   - "{{ shared_path }}"
   - "{{ shared_path }}/vendor"
   - "{{ shared_path }}/vendor/bundle"
+directories: []
 
 # default folders to symlink
 default_symlinks: []
