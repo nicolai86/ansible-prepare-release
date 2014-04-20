@@ -1,6 +1,6 @@
 {
   "name": "Ansible Prepare Release",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "homepage": "https://github.com/nicolai86/ansible-prepare-release",
   "authors": [
     "Raphael Randschau"
@@ -8,6 +8,6 @@
   "description": "prepare new application releases",
   "license": "MIT",
   "dependencies": {
-    "nicolai86.ansible-deployment-facts": "nicolai86/ansible-deployment-facts#~0.1.2"
+    "nicolai86.deployment-facts": "nicolai86/ansible-deployment-facts#~0.1.2"
   }
 }
