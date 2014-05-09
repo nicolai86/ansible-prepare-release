@@ -9,8 +9,8 @@
     group: "{{user}}"
     mode: "0755"
   with_items:
-    - $default_directories
-    - $directories
+    - "{{ default_directories }}"
+    - "{{ directories }}"
 
 - name: create configuration files from templates
   template:
@@ -19,7 +19,8 @@
     owner: "{{user}}"
     group: "{{user}}"
     mode: "0600"
-  with_items: $templates
+  with_items:
+    - "{{templates}}"
 
 - name: create or update the bare Git repository
   git:
@@ -52,8 +53,7 @@
     dest: "{{ item.dest }}"
     state: link
     force: yes
-    recurse: yes
   with_items:
-    - $default_symlinks
-    - $symlinks
+    - "{{default_symlinks}}"
+    - "{{symlinks}}"
   when: item is defined
