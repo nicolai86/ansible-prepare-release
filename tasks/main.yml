@@ -16,11 +16,11 @@
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    owner: "{{user}}"
-    group: "{{user}}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: "0600"
   with_items:
-    - "{{templates}}"
+    - "{{ templates }}"
 
 - name: create or update the bare Git repository
   git:

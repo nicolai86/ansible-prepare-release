@@ -13,3 +13,8 @@ symlinks: []
 
 # shared path for configuration files, uploads, etc.
 shared_path: "{{ deploy_to }}/shared"
+
+# path where new releases are build
+build_path: "{{ deployment.build_path }}"
+
+templates: []
