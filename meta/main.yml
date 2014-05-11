@@ -4,7 +4,7 @@ galaxy_info:
   description: "prepare new application releases "
   license: MIT
   min_ansible_version: 1.4
-  version: 0.1.5
+  version: 0.1.8
   platforms:
    - name: Ubuntu
      versions:
