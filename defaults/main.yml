@@ -17,4 +17,8 @@ shared_path: "{{ deploy_to }}/shared"
 # path where new releases are build
 build_path: "{{ deployment.build_path }}"
 
+# templates to be evaluated upon release, e.g. your database.j2
 templates: []
+
+# files that will be deleted after a git checkout has been made
+remove_files: []

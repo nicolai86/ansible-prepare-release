@@ -1,0 +1,14 @@
+---
+- file:
+    path: "{{ build_path }}"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- file:
+    path: "{{ build_path }}/examples"
+    state: directory
+
+- file:
+    path: "{{ build_path }}/examples/paths"
+    state: file

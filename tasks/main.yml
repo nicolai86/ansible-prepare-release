@@ -3,10 +3,10 @@
 
 - name: create shared directories
   file:
-    path: "{{item}}"
+    path: "{{ item }}"
     state: "directory"
-    owner: "{{user}}"
-    group: "{{user}}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: "0755"
   with_items:
     - "{{ default_directories }}"
@@ -24,27 +24,18 @@
 
 - name: create or update the bare Git repository
   git:
-    repo: "{{repo}}"
+    repo: "{{ repo }}"
     dest: "{{ deploy_to }}/scm"
-    version: "{{branch}}"
+    version: "{{ branch }}"
     bare: yes
     update: yes
     accept_hostkey: yes
 
-- debug:
-    msg: "cloned {{ repo }}:{{ branch }}"
-
-- name: clone the bare Git repository to build directory
-  git:
-    repo: "{{ deploy_to }}/scm"
-    dest: "{{build_path}}"
-    version: "{{branch}}"
-    bare: no
-    update: yes
+- shell: chdir="{{ deploy_to }}/scm" git archive {{ branch }} | tar -x -C {{ build_path }}
 
 - name: correct build directory permissions
   file:
-    path: "{{build_path}}"
+    path: "{{ build_path }}"
     mode: 0755
 
 - name: symlink shared files to build directory
@@ -54,6 +45,6 @@
     state: link
     force: yes
   with_items:
-    - "{{default_symlinks}}"
-    - "{{symlinks}}"
+    - "{{ default_symlinks }}"
+    - "{{ symlinks }}"
   when: item is defined
