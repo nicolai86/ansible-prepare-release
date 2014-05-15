@@ -10,5 +10,17 @@
     state: directory
 
 - file:
+    path: "{{ deploy_to }}/scm"
+    state: directory
+
+- file:
+    path: "{{ shared_path }}"
+    state: directory
+
+- file:
+    path: "{{ deploy_to }}/releases"
+    state: directory
+
+- file:
     path: "{{ build_path }}/examples/paths"
     state: file
