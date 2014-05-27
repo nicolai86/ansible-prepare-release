@@ -33,10 +33,15 @@
 
 - shell: chdir="{{ deploy_to }}/scm" git archive {{ branch }} | tar -x -C {{ build_path }}
 
-- name: correct build directory permissions
-  file:
+- file:
     path: "{{ build_path }}"
     mode: 0755
+
+- file:
+    path: "{{ build_path }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: yes
 
 - name: symlink shared files to build directory
   file:
