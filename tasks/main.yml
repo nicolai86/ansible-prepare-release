@@ -16,9 +16,9 @@
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    owner: "{{ item.user | user }}"
-    group: "{{ item.group | user }}"
-    mode: "{{ item.mode | 0600 }}"
+    owner: "{{ item.user | default(user) }}"
+    group: "{{ item.group | default(user) }}"
+    mode: "{{ item.mode | default(0600) }}"
   with_items:
     - "{{ templates }}"
 
