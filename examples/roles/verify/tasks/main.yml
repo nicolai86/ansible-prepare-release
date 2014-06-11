@@ -24,3 +24,11 @@
 - file:
     path: "{{ build_path }}/examples/paths"
     state: file
+
+- stat:
+    path: "{{ shared_path }}/examples/custom"
+  register: custom_template
+
+- fail:
+    msg: "custom template parameters did not work"
+  when: custom_template|failed or custom_template.stat.mode != "0744"
