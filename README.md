@@ -39,4 +39,4 @@ example usage:
 prepare a new release of any GIT versioned software using ansible
 
 [1]:https://github.com/nicolai86/ansible-rails-deployment
-[2]:https://github.com/nicolai86/ansible-finalize-releases
+[2]:https://github.com/nicolai86/ansible-finalize-release
