@@ -1,6 +1,6 @@
 {
   "name": "Ansible Prepare Release",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "homepage": "https://github.com/nicolai86/ansible-prepare-release",
   "authors": [
     "Raphael Randschau"
