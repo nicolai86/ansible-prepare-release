@@ -6,7 +6,7 @@
     path: "{{ item }}"
     state: "directory"
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group | default(user) }}"
     mode: "0755"
   with_items:
     - "{{ default_directories }}"
@@ -40,7 +40,7 @@
 - file:
     path: "{{ build_path }}"
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group | default(user) }}"
     recurse: yes
 
 - name: symlink shared files to build directory
