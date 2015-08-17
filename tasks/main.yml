@@ -29,6 +29,7 @@
     version: "{{ branch }}"
     bare: yes
     update: yes
+    key_file: "{{key_file}}"
     accept_hostkey: yes
 
 - shell: chdir="{{ deploy_to }}/scm" git archive {{ branch }} | tar -x -C {{ build_path }}
